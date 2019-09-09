@@ -6,7 +6,7 @@
         <div class="card-body">
           <h4 class="card-title">Back Page</h4>
           <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="progreso" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso + '%'" style="width: 75%"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="progreso" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso + '%'"></div>
           </div>
         </div>
       </div>
@@ -26,7 +26,10 @@
                   <i class="mdi mdi-minus"></i>
               </button>
             </span>
-            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+
+<!--            [(ngModel)] es diferente de [ngModel] (ojo con eso que me dio un dolor de cabeza descubrirlo) -->
+<!--            [(ngModel)] funciono para que yo pueda cambiar el valor 'progreso' dinamicamente por el input-->
+            <input type="text" class="form-control" name="progreso" [(ngModel)]="progreso">
             <span class="input-group-btn">
               <button class="btn btn-outline-secondary btn-primary" type="button" (click)="cambiarValor(+20)">
                   <i class="mdi mdi-plus"></i>
