@@ -5,6 +5,7 @@ import {ProgressComponent} from './pages/progress/progress.component';
 import {Graficas1Component} from './pages/graficas1/graficas1.component';
 import {NopagefoundComponent} from './shared/nopagefound/nopagefound.component';
 import {PagesComponent} from './pages/pages.component';
+import {RegisterComponent} from './login/register.component';
 
 //  Creando las rutas ------------- Y las rutas hijas
 const appRoutes: Routes = [
@@ -19,7 +20,7 @@ const appRoutes: Routes = [
     ]
   },
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: '**', component: NopagefoundComponent}
 ]; // Rutas hijas agregadas
 //  Tenemos dos router-outlet (pages.comp y app.comp, una ruta funcionara dentro de la otra)
