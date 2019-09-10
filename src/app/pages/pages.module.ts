@@ -11,6 +11,7 @@ import {Graficas1Component} from './graficas1/graficas1.component';
 import {PagesComponent} from './pages.component';
 import {PAGES_ROUTES} from './pages.routes';
 import {IncrementadorComponent} from '../components/incrementador/incrementador.component';
+import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {IncrementadorComponent} from '../components/incrementador/incrementador.
     DashboardComponent,
     Graficas1Component,
     ProgressComponent,
-    IncrementadorComponent
+    IncrementadorComponent,
+    AccoutSettingsComponent
   ],
   exports: [    // La exportamos porque requerimos estos componente en otrod componente que no estan aqui
     DashboardComponent, // Ej: si solo usaramos 'Graficas1' en 'Dashboard o Progress'
