@@ -19,3 +19,6 @@ export class ProgressComponent implements OnInit {
     this.progreso1 = evento;
   }
 }
+
+
+// Soy el padre de Incrementador
