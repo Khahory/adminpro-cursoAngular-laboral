@@ -8,7 +8,7 @@
   </span>
   <!-- [(ngModel)] es diferente de [ngModel] (ojo con eso que me dio un dolor de cabeza descubrirlo) -->
   <!-- [(ngModel)] funciono para que yo pueda cambiar el valor 'progreso' dinamicamente por el input-->
-  <input type="number" class="form-control" name="progreso" [(ngModel)]="progreso" min="1" max="100">
+  <input type="number" class="form-control" name="progreso" (ngModelChange)="onChanges($event)" [(ngModel)]="progreso" min="1" max="100">
   <span class="input-group-btn">
     <button class="btn btn-outline-secondary btn-primary" type="button" (click)="cambiarValor(+10)">
       <i class="mdi mdi-plus"></i>
