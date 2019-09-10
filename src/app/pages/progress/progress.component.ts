@@ -20,5 +20,4 @@ export class ProgressComponent implements OnInit {
   }
 }
 
-
 // Soy el padre de Incrementador
