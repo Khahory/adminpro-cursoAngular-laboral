@@ -4,11 +4,11 @@
         <div class="card-body">
           <h4 class="card-title">Back Page</h4>
           <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="progreso" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso + '%'"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="progreso1" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso1 + '%'"></div>
           </div>
 
           <div class="progress mt-3">
-            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.aria-valuenow]="progreso" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso + '%'"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.aria-valuenow]="progreso2" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [style.width]="progreso2 + '%'"></div>
           </div>
         </div>
       </div>
@@ -24,14 +24,15 @@
         <div class="card-body">
 <!--          Ahora puedo agregar atributos mios al app-ccomponent-->
 <!--          Nota: si [atributo] = 'variable_component' y atributo = 'valor_al_atributo o literalmente envia lo que esta aqui'-->
-          <app-incrementador leyenda="Pregress bar Azul" [progreso]="20"></app-incrementador>   <!-- Progress pertenece a page.module, pues debemos -->
+          <app-incrementador (cambioValor)="actualizarProgress($event)" leyenda="Pregress bar Azul" [progreso]="progreso1"></app-incrementador>   <!-- Progress pertenece a page.module, pues debemos -->
         </div>                                    <!-- importar incrementador al modulo Page aunque este en Root -->
       </div>
     </div>
     <div class="col-6">
       <div class="card">
         <div class="card-body">
-          <app-incrementador leyenda="Pregress bar Verde" [progreso]="80"></app-incrementador>
+          <app-incrementador (cambioValor)="progreso2 = $event" leyenda="Pregress bar Verde" [progreso]="progreso2"></app-incrementador>
+<!--                      Use EventEmitter de dos manera (metodo - progress1 y directo - progres2)-->
         </div>
       </div>
     </div>
