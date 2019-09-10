@@ -22,14 +22,16 @@
     <div class="col-6">
       <div class="card">
         <div class="card-body">
-          <app-incrementador></app-incrementador>   <!-- Progress pertenece a page.module, pues debemos -->
+<!--          Ahora puedo agregar atributos mios al app-ccomponent-->
+<!--          Nota: si [atributo] = 'variable_component' y atributo = 'valor_al_atributo'-->
+          <app-incrementador leyenda="Pregress bar Azul" [progreso]="20"></app-incrementador>   <!-- Progress pertenece a page.module, pues debemos -->
         </div>                                    <!-- importar incrementador al modulo Page aunque este en Root -->
       </div>
     </div>
     <div class="col-6">
       <div class="card">
         <div class="card-body">
-          <app-incrementador></app-incrementador>
+          <app-incrementador leyenda="Pregress bar Verde" [progreso]="80"></app-incrementador>
         </div>
       </div>
     </div>
