@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {DOCUMENT} from '@angular/common';
+import {SettingsService} from '../../services/settings.service';
 
 @Component({
   selector: 'app-accout-settings',
@@ -9,17 +9,14 @@ import {DOCUMENT} from '@angular/common';
 export class AccoutSettingsComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
-  constructor(@Inject(DOCUMENT) private _document) { }
+  constructor(public _ajustes: SettingsService ) { }
 
   ngOnInit() {
   }
 
   private cambiarColor(tema: string, link: any) {
     this.aplicarCheck(link);
-
-    console.log(tema);
-    const url = `assets/css/colors/${tema}.css`;
-    this._document.getElementById('tema').setAttribute('href', url);
+    this._ajustes.aplicarTema(tema);
   }
 
   aplicarCheck(link: any) {
@@ -30,5 +27,4 @@ export class AccoutSettingsComponent implements OnInit {
     }
     link.classList.add('working');
   }
-
 }
