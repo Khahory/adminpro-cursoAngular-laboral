@@ -12,6 +12,7 @@ export class AccoutSettingsComponent implements OnInit {
   constructor(public _ajustes: SettingsService ) { }
 
   ngOnInit() {
+    this.colocarCheckActual();
   }
 
   private cambiarColor(tema: string, link: any) {
@@ -27,4 +28,18 @@ export class AccoutSettingsComponent implements OnInit {
     }
     link.classList.add('working');
   }
+
+  colocarCheckActual() {
+    const selectores: any = document.getElementsByClassName('selector');
+    const tema = this._ajustes.ajustes.tema;
+
+    for (const ref of selectores) {
+      if (ref.getAttribute('data-theme') === tema) {
+        ref.classList.add('working');
+        break;
+      }
+    }
+  }
+
+
 }
