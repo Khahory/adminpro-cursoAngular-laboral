@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class IncrementadorComponent implements OnInit {
   // Variables
-  @Input() private progreso: number = 60; // Decorador que funciona para enviarlo al compo del padre (progress)
+  @Input() private progreso: number = 60; // Decorador que funciona para recibir info del padre (progress)
   @Input() private leyenda: string = 'Leyenda'; // @Input(alias del atributo)
 
   //        nombreEvento        Tipo evento       Inicializamos
