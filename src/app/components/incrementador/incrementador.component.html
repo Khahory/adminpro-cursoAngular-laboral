@@ -1,0 +1,17 @@
+<h3>{{leyenda}}</h3>
+<div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-outline-secondary btn-primary" type="button" (click)="cambiarValor(-20)">
+                  <i class="mdi mdi-minus"></i>
+              </button>
+            </span>
+
+  <!--            [(ngModel)] es diferente de [ngModel] (ojo con eso que me dio un dolor de cabeza descubrirlo) -->
+  <!--            [(ngModel)] funciono para que yo pueda cambiar el valor 'progreso' dinamicamente por el input-->
+  <input type="text" class="form-control" name="progreso" [(ngModel)]="progreso">
+  <span class="input-group-btn">
+              <button class="btn btn-outline-secondary btn-primary" type="button" (click)="cambiarValor(+20)">
+                  <i class="mdi mdi-plus"></i>
+              </button>
+            </span>
+</div>
