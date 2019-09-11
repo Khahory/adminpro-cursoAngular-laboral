@@ -12,6 +12,7 @@ import {PagesComponent} from './pages.component';
 import {PAGES_ROUTES} from './pages.routes';
 import {IncrementadorComponent} from '../components/incrementador/incrementador.component';
 import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AccoutSettingsComponent } from './accout-settings/accout-settings.compo
     Graficas1Component,
     ProgressComponent,
     IncrementadorComponent,
-    AccoutSettingsComponent
+    AccoutSettingsComponent,
+    PromesasComponent
   ],
   exports: [    // La exportamos porque requerimos estos componente en otrod componente que no estan aqui
     DashboardComponent, // Ej: si solo usaramos 'Graficas1' en 'Dashboard o Progress'
