@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Servicios
-import {SettingsService} from './services/settings.service';
+import {ServiceModule} from './services/service.module';
 
 //  Rutas
 import {APP_ROUTES} from './app.routing';
@@ -23,9 +23,10 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule
   ],
-  providers: [SettingsService],
+  providers: [],
   exports: [
   ],
   bootstrap: [AppComponent]
