@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
+import {retry} from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
@@ -21,12 +22,15 @@ export class RxjsComponent implements OnInit {
         }
 
         if (contador == 2) {
+          clearInterval(intervalo);
           observer.error('Error, ayudaa!!'); //  Esto hara que el obs termine de golpe .error()
         }
       }, 1000);
     });
 
-    obs.subscribe(
+    obs.pipe(
+      retry(2) // Numeroes de intentos
+    ).subscribe(
       numero => console.log('Sub:', numero),
       error => console.error('Error en el obs', error),
       () => console.log('el observador termino')
