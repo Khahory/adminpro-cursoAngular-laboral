@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable, Subscriber} from 'rxjs';
-import {map, retry} from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Observable, Subscriber, Subscription} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
   templateUrl: './rxjs.component.html',
   styles: []
 })
-export class RxjsComponent implements OnInit {
+export class RxjsComponent implements OnInit, OnDestroy {
+  // Varaibles
+  subscription: Subscription;
 
   constructor() {
 
-    this.regresaObservable().subscribe(
+    //  Para poder sacar el metodo unsubscribe
+    this.subscription = this.regresaObservable().subscribe(
       numero => console.log('Sub:', numero),
       error => console.error('Error en el obs', error),
       () => console.log('el observador termino')
@@ -19,6 +22,11 @@ export class RxjsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    console.log('Se destruyo el componente rxjs');
+    this.subscription.unsubscribe();
   }
 
   //Return obs
@@ -34,15 +42,6 @@ export class RxjsComponent implements OnInit {
 
         observer.next(salida);
 
-        if (contador === 4) {
-          clearInterval(intervalo);
-          observer.complete();
-        }
-
-        // if (contador == 2) {
-        //   clearInterval(intervalo);
-        //   observer.error('Error, ayudaa!!'); //  Esto hara que el obs termine de golpe .error()
-        // }
       }, 1000);
     }).pipe(
       map(resp => {   // Map modifica el valor que obtenemos, ejemplo: regadora de flores
